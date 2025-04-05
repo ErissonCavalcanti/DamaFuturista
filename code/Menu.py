@@ -39,3 +39,18 @@ class Menu:
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
+
+        if text_color == C_WHITE:
+            padding = 10  # espaço extra ao redor do texto
+            bg_rect = Rect(
+                text_rect.left - padding,
+                text_rect.top - padding,
+                text_rect.width + 2 * padding,
+                text_rect.height + 2 * padding
+            )
+            roxo = (128, 0, 128)  # cor roxa (RGB)
+            pygame.draw.rect(self.window, roxo, bg_rect, border_radius=5)
+
+        self.window.blit(source=text_surf, dest=text_rect)
+        
+
