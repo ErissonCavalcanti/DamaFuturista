@@ -15,7 +15,6 @@ class Menu:
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
-        global i
         menu_option = 0
         pygame.mixer_music.load("./asset/Menu.mp3")
         pygame.mixer_music.play(-1)
@@ -47,6 +46,9 @@ class Menu:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPTION) - 1
+                    if event.key == pygame.K_RETURN:
+                        return MENU_OPTION[menu_option]
+
 
             pygame.display.flip()
 
